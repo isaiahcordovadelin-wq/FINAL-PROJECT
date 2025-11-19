@@ -7,7 +7,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* === HERO SECTION === */
 .hero {
   position: relative;
   height: 100vh;
@@ -19,7 +18,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Parallax effect */
+  background-attachment: fixed;
   animation: moveBg 25s infinite alternate ease-in-out;
   display: flex;
   align-items: center;
@@ -31,22 +30,16 @@ body {
 }
 
 @keyframes moveBg {
-  0% {
-    background-position: center top;
-  }
-  50% {
-    background-position: center center;
-  }
-  100% {
-    background-position: center bottom;
-  }
+  0% { background-position: center top; }
+  50% { background-position: center center; }
+  100% { background-position: center bottom; }
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
@@ -57,48 +50,136 @@ body {
   animation: fadeIn 2s ease-in-out;
 }
 
-/* === NAVBAR === */
 .navbar {
   transition: all 0.3s ease;
 }
+
 .navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.9) !important;
   box-shadow: 0 0 10px #a855f7;
 }
 
-/* === BUTTONS === */
-.btn-light:hover {
-  background-color: #a855f7;
-  color: #fff;
+.navbar a {
+  color: #fff !important;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #a855f7 !important;
+}
+
+.btn-light:hover,
+.book-btn:hover {
+  background-color: #a855f7 !important;
+  color: #fff !important;
   box-shadow: 0 0 15px #a855f7;
   transition: 0.3s ease;
 }
 
-/* === CARD ANIMATIONS === */
 .card {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
+  transition: opacity 1s ease, transform 1s ease, box-shadow .3s;
 }
+
 .card.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* === FOOTER === */
+.rooms-section {
+  padding: 80px 0;
+}
+
+.room-card {
+  background: #1b1b1b;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+}
+
+.room-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.room-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.book-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 22px;
+  background-color: transparent;
+  border: 1px solid #a855f7;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.about-hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../img/hotel.jpg"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+.about-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 15px auto;
+  font-size: 1.2rem;
+  color: #f1f1f1;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+}
+
 footer {
   background-color: #000;
   border-top: 2px solid #a855f7;
+  padding: 25px 0;
+  margin-top: 50px;
+  text-align: center;
+  color: #ddd;
+  font-size: 14px;
 }
 
-/* === KEYFRAMES === */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
